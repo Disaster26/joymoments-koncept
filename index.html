@@ -5,20 +5,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Joy Moments | Chwile, do których chce się wracać</title>
-<meta name="description" content="Joy Moments - radosne chwile przygotowane w szczegółach. Napisz, jaką okazję planujesz: info@joymoments.pl">
+<meta name="description" content="Joy Moments - radosne chwile dopięte w szczegółach. Napisz, jaką okazję planujesz: info@joymoments.pl">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="img/iskra.svg" type="image/svg+xml">
+<link rel="icon" href="img/znak.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero-sala.webp">
 <style>
 :root{
-  --brand:#8b6b4f; --brand-d:#6e5139; --brand-l:#efe6dc;
-  --cream:#faf7f2; --ink:#2b2119; --muted:#62574e; --line:#e9e2da;
-  --spark:#d99a2b;
-  --hh:64px; --wrap:min(1180px, calc(100% - 32px));
-  --serif:"Fraunces", Georgia, serif; --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent:#D7193F; --accent-d:#B01233;
+  --ink:#18141C; --muted:#57535C; --line:#E4E5E8; --grey:#F1F2F4;
+  --hh:68px; --wrap:min(1200px, calc(100% - 32px));
+  --head:"Bricolage Grotesque", system-ui, sans-serif; --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--hh);-webkit-text-size-adjust:100%}
@@ -26,201 +25,178 @@ body{margin:0;background:#fff;color:var(--ink);font:400 16px/1.6 var(--sans);ove
 img{display:block;max-width:100%}
 a{color:inherit}
 .wrap{width:var(--wrap);margin:0 auto}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em;font-optical-sizing:auto}
-h2{font-size:clamp(30px,4.2vw,46px)}
+h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.05;margin:0;letter-spacing:-.018em}
+h2{font-size:clamp(34px,4.6vw,60px)}
 p{margin:0}
-.iskra{display:inline-block;width:.62em;height:.62em;color:var(--spark);flex:none}
-.iskra svg{width:100%;height:100%;display:block}
 
-/* przyciski */
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--brand);color:#fff;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s}
-.btn:hover{background:var(--brand-d)}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 26px;border-radius:10px;background:var(--accent);color:#fff;font:700 16.5px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--accent-d)}
 .btn:active{transform:scale(.98)}
-.btn .iskra{color:#f3d08f;width:14px;height:14px}
-.btn-jasny{background:#fff;color:var(--brand-d)}
-.btn-jasny:hover{background:var(--cream)}
+.btn-ciemny{background:var(--ink)}
+.btn-ciemny:hover{background:#000}
 
 /* nagłówek */
-.top{position:sticky;top:0;z-index:50;height:var(--hh);background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.znak{display:inline-flex;align-items:flex-start;text-decoration:none;font:500 25px/1 var(--serif);color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
-.znak .j{position:relative;color:var(--brand)}
-.znak .j .iskra{position:absolute;left:52%;top:-9px;width:11px;height:11px}
-.znak .m{margin-left:.24em}
+.top{position:sticky;top:0;z-index:50;height:var(--hh);background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.znak{display:inline-flex;align-items:baseline;gap:.22em;text-decoration:none;font:800 27px/1 var(--head);letter-spacing:-.035em;color:var(--ink);white-space:nowrap}
+.znak .j{color:var(--accent)}
 .menu{display:flex;align-items:center;gap:30px}
-.menu a{text-decoration:none;font-weight:500;font-size:15.5px;color:var(--muted);position:relative;padding:6px 0}
+.menu a{text-decoration:none;font-weight:600;font-size:15.5px;color:var(--muted);position:relative;padding:6px 0}
 .menu a:hover{color:var(--ink)}
 .menu a.akt{color:var(--ink)}
-.menu a.akt::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--brand)}
-.top .btn{min-height:44px;padding:0 20px;font-size:15px}
-.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer;padding:0}
-.burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s}
+.menu a.akt::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;border-radius:3px;background:var(--accent)}
+.top-r{display:flex;align-items:center;gap:22px}
+.top-mail{font-weight:700;font-size:15px;text-decoration:none}
+.top-mail:hover{color:var(--accent)}
+.top .btn{min-height:44px;padding:0 18px;font-size:15px}
+.burger{display:none;width:46px;height:46px;border:0;border-radius:10px;background:var(--ink);align-items:center;justify-content:center;cursor:pointer;padding:0}
+.burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:transform .25s}
 .burger span::before{top:-6px}.burger span::after{top:6px}
 .burger[aria-expanded="true"] span{background:transparent}
 .burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
 .burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
 .panel{display:none}
 
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);min-height:calc(100svh - var(--hh));background:#fff}
-.hero-in{display:flex;flex-direction:column;justify-content:center;padding:48px clamp(24px,5vw,72px) 48px max(16px, calc((100vw - 1180px)/2))}
-.hero h1{font-size:clamp(40px,4.9vw,70px);max-width:12ch;text-wrap:balance}
-.okazje-lista{list-style:none;margin:clamp(36px,6vh,64px) 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:15px}
-.okazje-lista li{display:flex;align-items:center;gap:8px}
-.okazje-lista .iskra{width:10px;height:10px}
-.hero h1 .iskra{width:.42em;height:.42em;vertical-align:.62em;margin-left:.08em}
-.hero .lead{margin-top:22px;font-size:clamp(17px,1.35vw,19px);color:var(--muted);max-width:30em}
-.hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
-.hero-mail{font-weight:600;color:var(--brand-d);text-decoration:none;border-bottom:1px solid rgba(139,107,79,.35);padding-bottom:2px}
-.hero-mail:hover{border-color:var(--brand)}
-.hero-foto{position:relative;margin:0;overflow:hidden;background:var(--brand-l)}
-.hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.18),rgba(255,255,255,0) 22%)}
+/* hero: pełne zdjęcie z hasłem na zdjęciu */
+.hero{position:relative;min-height:calc(100svh - var(--hh));display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink)}
+.hero>img{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,rgba(20,10,16,.86) 0%,rgba(20,10,16,.66) 40%,rgba(20,10,16,.18) 72%,rgba(20,10,16,.05) 100%),linear-gradient(0deg,rgba(20,10,16,.4),rgba(20,10,16,0) 45%)}
+.hero-in{position:relative;z-index:2;width:var(--wrap);margin:0 auto;padding:48px 0}
+.hero h1{font-size:clamp(46px,5.6vw,88px);max-width:10.5ch;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero .lead{margin-top:24px;font-size:clamp(17px,1.4vw,21px);line-height:1.5;max-width:28em;color:rgba(255,255,255,.92)}
+.hero .btn{margin-top:34px}
 
 /* sekcje */
-.sek{padding:clamp(64px,8vw,112px) 0}
-.sek-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px}
-.sek-head p{color:var(--muted);max-width:34em;margin-top:14px;font-size:17px}
-.sek-head h2 .iskra{width:.4em;height:.4em;vertical-align:.7em;margin-left:.1em}
+.sek{padding:clamp(68px,8vw,120px) 0}
+.sek-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.sek-head p{color:var(--muted);max-width:34em;margin-top:16px;font-size:17.5px}
 .strzalki{display:flex;gap:10px;flex:none}
-.strzalki button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
-.strzalki button:hover{border-color:var(--brand);background:var(--cream)}
-.strzalki svg{width:18px;height:18px}
+.strzalki button{width:52px;height:52px;border-radius:50%;border:0;background:var(--ink);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.strzalki button:hover{background:var(--accent)}
+.strzalki span{font:700 22px/1 var(--head);transform:translateY(-1px)}
 
-/* okazje - karty swipe */
-.tor{display:grid;grid-auto-flow:column;grid-auto-columns:calc((min(1180px, 100vw - 32px) - 72px)/3.3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px;cursor:grab;overscroll-behavior-x:contain}
+/* okazje */
+.tor{display:grid;grid-auto-flow:column;grid-auto-columns:calc((min(1200px, 100vw - 32px) - 60px)/3.4);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain}
 .tor::-webkit-scrollbar{display:none}
-.tor.ciag{cursor:grabbing;scroll-snap-type:none}
-.tor.ciag *{user-select:none;pointer-events:none}
+.tor.ciag,.pas.ciag{cursor:grabbing;scroll-snap-type:none}
+.tor.ciag *,.pas.ciag *{user-select:none;pointer-events:none}
 .karta{scroll-snap-align:start;min-width:0}
-.karta figure{margin:0;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--brand-l);position:relative}
+.karta figure{margin:0;aspect-ratio:4/5;border-radius:16px;overflow:hidden;position:relative;background:var(--grey)}
 .karta img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.karta:hover img{transform:scale(1.035)}
-.karta h3{margin-top:18px;font-size:24px;display:flex;align-items:center;gap:10px}
-.karta h3 .iskra{width:13px;height:13px}
-.karta p{margin-top:6px;color:var(--muted)}
+.karta:hover img{transform:scale(1.04)}
+.karta figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,12,18,.78),rgba(18,12,18,0) 48%)}
+.karta h3{position:absolute;z-index:1;left:20px;right:20px;bottom:18px;color:#fff;font-size:clamp(24px,2.1vw,30px)}
+.karta p{margin-top:14px;color:var(--muted)}
 
-/* motto - krem */
-.motto{background:var(--cream)}
+/* motto - szarość */
+.motto{background:var(--grey)}
 .motto .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
-.motto blockquote{margin:0;font:400 clamp(28px,3.4vw,44px)/1.22 var(--serif);letter-spacing:-.01em}
-.motto blockquote em{font-style:normal;color:var(--brand)}
-.motto .opis{color:var(--muted);font-size:17px;margin-top:22px;max-width:30em}
+.motto h2{font-size:clamp(32px,3.8vw,52px)}
+.motto .opis{color:var(--muted);font-size:17.5px;margin-top:22px;max-width:30em}
 .duet{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:16px;align-items:end}
-.duet figure{margin:0;border-radius:18px;overflow:hidden;background:var(--brand-l)}
+.duet figure{margin:0;border-radius:16px;overflow:hidden;background:#ddd}
 .duet figure:first-child{aspect-ratio:4/5}
-.duet figure:last-child{aspect-ratio:3/4;margin-bottom:40px}
+.duet figure:last-child{aspect-ratio:3/4;margin-bottom:44px;border:6px solid var(--accent)}
 .duet img{width:100%;height:100%;object-fit:cover}
 
-/* linia chwil */
-.linia{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;position:relative}
-.linia::before{content:"";position:absolute;left:12px;right:12px;top:12px;height:1px;background:linear-gradient(90deg,var(--brand) 0,var(--brand) 60%,rgba(139,107,79,.15))}
-.linia li{position:relative;padding-top:48px}
-.linia .wezel{position:absolute;top:0;left:0;width:25px;height:25px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px #fff}
-.linia .wezel .iskra{width:25px;height:25px}
-.linia h3{font-size:24px}
-.linia p{margin-top:8px;color:var(--muted);max-width:24em}
+/* jak - ciemna */
+.jak{background:var(--ink);color:#fff}
+.jak .sek-head p{color:rgba(255,255,255,.72)}
+.linia{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.linia li{border-top:3px solid var(--accent);padding-top:24px}
+.linia h3{font-size:clamp(24px,2.2vw,30px)}
+.linia p{margin-top:10px;color:rgba(255,255,255,.74);max-width:24em}
 
 /* galeria */
-.galeria{background:#fff;padding-top:0}
-.pas{display:grid;grid-auto-flow:column;grid-auto-columns:calc((min(1180px, 100vw - 32px) - 32px)/2.4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain}
+.pas{display:grid;grid-auto-flow:column;grid-auto-columns:calc((min(1200px, 100vw - 32px) - 32px)/2.4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain}
 .pas::-webkit-scrollbar{display:none}
-.pas.ciag{cursor:grabbing;scroll-snap-type:none}
-.pas.ciag *{user-select:none;pointer-events:none}
-.pas figure{margin:0;aspect-ratio:3/2;border-radius:14px;overflow:hidden;scroll-snap-align:start;background:var(--brand-l)}
+.pas figure{margin:0;aspect-ratio:3/2;border-radius:16px;overflow:hidden;scroll-snap-align:start;background:var(--grey)}
 .pas img{width:100%;height:100%;object-fit:cover}
-.kropki{display:flex;gap:8px;justify-content:center;margin-top:22px}
-.kropki i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
-.kropki i.on{background:var(--brand);width:22px;border-radius:8px}
+.kropki{display:flex;gap:8px;justify-content:center;margin-top:24px}
+.kropki i{width:9px;height:9px;border-radius:50%;background:#d3d4d8;transition:background .2s,width .2s}
+.kropki i.on{background:var(--accent);width:26px;border-radius:9px}
 
-/* kontakt */
-.kontakt{background:var(--brand);color:#fff}
+/* kontakt - akcent */
+.kontakt{background:var(--accent);color:#fff}
 .kontakt .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,88px);align-items:start}
-.kontakt h2 .iskra{color:#f3d08f;width:.4em;height:.4em;vertical-align:.7em;margin-left:.1em}
-.kontakt .opis{margin-top:18px;font-size:17px;color:rgba(255,255,255,.86);max-width:28em}
-.kanal{margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
-.kanal span{display:block;font-size:14px;color:rgba(255,255,255,.75)}
-.kanal a{font:500 clamp(22px,2.2vw,28px)/1.3 var(--serif);text-decoration:none;color:#fff;border-bottom:1px solid rgba(255,255,255,.4)}
-.kanal a:hover{border-color:#fff}
-form{background:#fff;color:var(--ink);border-radius:20px;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.kontakt .opis{margin-top:20px;font-size:18px;color:rgba(255,255,255,.92);max-width:26em}
+.kanal{margin-top:36px}
+.kanal span{display:block;font-size:14px;font-weight:600;color:rgba(255,255,255,.8)}
+.kanal a{font:800 clamp(24px,2.4vw,32px)/1.25 var(--head);letter-spacing:-.02em;text-decoration:none;color:#fff}
+.kanal a:hover{text-decoration:underline;text-underline-offset:5px}
+form{background:#fff;color:var(--ink);border-radius:18px;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;box-shadow:0 24px 50px rgba(80,0,20,.25)}
 .pole{display:flex;flex-direction:column;gap:6px;min-width:0}
 .pole.cale{grid-column:1/-1}
-label{font-size:14px;font-weight:600}
-input,select,textarea{font:400 16px/1.4 var(--sans);color:var(--ink);background:#fff;border:1px solid #d9d0c6;border-radius:12px;padding:12px 14px;width:100%;min-width:0}
+label{font-size:14px;font-weight:700}
+input,select,textarea{font:400 16px/1.4 var(--sans);color:var(--ink);background:var(--grey);border:1px solid transparent;border-radius:10px;padding:13px 14px;width:100%;min-width:0}
 textarea{min-height:110px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
 form .btn{justify-self:start}
 .info{grid-column:1/-1;font-size:14px;color:var(--muted);display:none}
 .info.on{display:block}
 
 /* stopka */
-.stopka{background:#fff;border-top:1px solid var(--line);padding:44px 0 28px;color:var(--muted);font-size:15px}
+.stopka{background:#fff;padding:48px 0 28px;color:var(--muted);font-size:15px}
 .stopka .gora{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:28px}
-.stopka h4{margin:0 0 10px;font:600 14px/1.3 var(--sans);color:var(--ink)}
+.stopka h4{margin:0 0 10px;font:700 14px/1.3 var(--sans);color:var(--ink)}
 .stopka ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .stopka a{text-decoration:none}
 .stopka a:hover{color:var(--ink)}
 .stopka .opis{margin-top:12px;max-width:26em}
 .stopka .dol{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;font-size:13.5px}
 
-/* dolny pasek tel */
 .mob{display:none}
 
-/* ---------- komputer niski ---------- */
-@media (min-width:1025px) and (max-height:820px){
-  .hero h1{font-size:clamp(38px,4.2vw,58px)}
-  .hero .lead{margin-top:16px}
-  .hero-cta{margin-top:24px}
+@media (min-width:861px) and (max-height:820px){
+  .hero h1{font-size:clamp(44px,5.4vw,80px)}
+  .hero .lead{margin-top:18px}
+  .hero .btn{margin-top:26px}
 }
-/* ---------- tablet ---------- */
+@media (max-width:1100px){.top-mail{display:none}}
 @media (max-width:1024px){
   .menu{gap:22px}
-  .tor{grid-auto-columns:calc((100vw - 32px - 24px)/2.2)}
+  .tor{grid-auto-columns:calc((100vw - 32px - 20px)/2.2)}
 }
-/* ---------- telefon ---------- */
 @media (max-width:860px){
-  :root{--hh:60px}
-  .menu,.top .btn{display:none}
+  :root{--hh:62px}
+  .menu,.top-r{display:none}
   .burger{display:flex}
-  .panel{position:fixed;inset:var(--hh) 0 auto 0;z-index:49;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px 22px;box-shadow:0 18px 30px rgba(43,33,25,.08)}
+  .znak{font-size:25px}
+  .panel{position:fixed;inset:var(--hh) 0 auto 0;z-index:49;background:#fff;border-bottom:1px solid var(--line);padding:6px 16px 22px;box-shadow:0 18px 30px rgba(24,20,28,.12)}
   .panel.on{display:block}
-  .panel a.lk{display:flex;align-items:center;justify-content:space-between;padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none;font:500 21px/1.3 var(--serif)}
-  .panel a.lk.akt{color:var(--brand)}
+  .panel a.lk{display:block;padding:15px 2px;border-bottom:1px solid var(--line);text-decoration:none;font:700 22px/1.3 var(--head);letter-spacing:-.02em}
+  .panel a.lk.akt{color:var(--accent)}
   .panel .btn{margin-top:18px;width:100%;justify-content:center}
   .panel .mail{display:block;margin-top:14px;text-align:center;color:var(--muted);font-size:15px;text-decoration:none}
 
-  .hero{display:flex;flex-direction:column;min-height:calc(100svh - var(--hh))}
-  .hero-foto{order:-1;flex:1 1 0;min-height:min(56vw,30svh);max-height:56svh;align-self:stretch;width:100%}
-  .hero-foto::after{background:linear-gradient(180deg,rgba(255,255,255,0) 70%,#fff)}
-  .hero-in{flex:0 0 auto;padding:clamp(14px,2.6svh,24px) 16px clamp(20px,3.6svh,32px)}
-  .hero h1{font-size:clamp(31px,min(9.4vw,5.6svh),44px);max-width:none}
-  .hero .lead{margin-top:clamp(8px,1.6svh,14px);font-size:clamp(15px,min(4.2vw,2.3svh),17px);line-height:1.5}
-  .hero-cta{margin-top:clamp(14px,2.6svh,24px);gap:12px 18px}
-  .hero-cta .btn{min-height:clamp(46px,6.6svh,52px)}
-  .okazje-lista{display:none}
+  .hero{align-items:flex-end}
+  .hero>img{object-position:50% 50%}
+  .hero::before{background:linear-gradient(0deg,rgba(20,10,16,.92) 0%,rgba(20,10,16,.78) 42%,rgba(20,10,16,.2) 72%,rgba(20,10,16,.1) 100%)}
+  .hero-in{padding:0 0 clamp(30px,5.5svh,52px)}
+  .hero h1{font-size:clamp(40px,min(12vw,6.6svh),56px);max-width:none}
+  .hero .lead{margin-top:clamp(12px,2svh,18px);font-size:clamp(16px,min(4.4vw,2.4svh),18px)}
+  .hero .btn{margin-top:clamp(18px,3svh,28px);width:100%;justify-content:center;min-height:clamp(50px,7svh,56px)}
 
-  .sek-head{margin-bottom:26px}
+  .sek-head{margin-bottom:28px}
   .strzalki{display:none}
   .tor{grid-auto-columns:calc((100vw - 32px)*.8);gap:14px;margin-right:-16px;padding-right:16px}
-  .karta h3{font-size:22px;margin-top:14px}
   .motto .wrap{grid-template-columns:minmax(0,1fr)}
-  .duet figure:last-child{margin-bottom:28px}
+  .duet figure:last-child{margin-bottom:30px}
   .linia{grid-template-columns:minmax(0,1fr);gap:28px}
-  .linia::before{left:12px;right:auto;top:12px;bottom:12px;width:1px;height:auto;background:linear-gradient(180deg,var(--brand),rgba(139,107,79,.15))}
-  .linia li{padding:0 0 0 48px}
+  .linia li{padding-top:18px}
   .pas{grid-auto-columns:calc((100vw - 32px)*.86);gap:12px;margin-right:-16px;padding-right:16px}
   .kontakt .wrap{grid-template-columns:minmax(0,1fr)}
   form{grid-template-columns:minmax(0,1fr)}
   form .btn{width:100%;justify-content:center}
   .stopka .gora{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .stopka .gora>div:first-child{grid-column:1/-1}
-  .stopka{padding-bottom:calc(28px + 72px)}
+  .stopka{padding-bottom:calc(28px + 76px)}
 
-  .mob{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
+  .mob{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
   .mob.widac{transform:none}
-  .mob .btn{flex:1;justify-content:center;min-height:48px}
-  .mob .btn-jasny{border:1px solid var(--line);flex:0 0 auto}
+  .mob .btn{flex:1;justify-content:center;min-height:50px}
+  .mob .btn-ciemny{flex:0 0 auto}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 /* znak Wylinki */
@@ -237,11 +213,10 @@ form .btn{justify-self:start}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-iskra" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C12.9 7.2 16.8 11.1 24 12 16.8 12.9 12.9 16.8 12 24 11.1 16.8 7.2 12.9 0 12 7.2 11.1 11.1 7.2 12 0Z"/></symbol></svg>
 
 <header class="top">
   <div class="wrap">
-    <a class="znak" href="#start" aria-label="Joy Moments - strona główna"><span class="j">Joy<span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><span class="m">Moments</span></a>
+    <a class="znak" href="#start" aria-label="Joy Moments - strona główna"><span class="j">joy</span><span>moments</span></a>
     <nav class="menu" aria-label="Menu główne">
       <a href="#start" class="akt" aria-current="page">Start</a>
       <a href="#okazje">Okazje</a>
@@ -249,7 +224,10 @@ form .btn{justify-self:start}
       <a href="#galeria">Galeria</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="btn" href="#kontakt">Zapytaj o termin</a>
+    <div class="top-r">
+      <a class="top-mail" href="mailto:info@joymoments.pl">info@joymoments.pl</a>
+      <a class="btn" href="#kontakt">Zapytaj o termin</a>
+    </div>
     <button class="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="panel"><span></span></button>
   </div>
 </header>
@@ -259,47 +237,38 @@ form .btn{justify-self:start}
   <a class="lk" href="#jak">Jak to wygląda</a>
   <a class="lk" href="#galeria">Galeria</a>
   <a class="lk" href="#kontakt">Kontakt</a>
-  <a class="btn" href="#kontakt"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Zapytaj o termin</a>
+  <a class="btn" href="#kontakt">Zapytaj o termin</a>
   <a class="mail" href="mailto:info@joymoments.pl">info@joymoments.pl</a>
 </div>
 
 <main>
 <section class="hero" id="start">
+  <img src="img/hero-sala.webp" alt="Sala przygotowana na przyjęcie: długie stoły, drewniany strop i girlandy kolorowych światełek" width="1024" height="683" fetchpriority="high">
   <div class="hero-in">
-    <h1>Chwile, do których chce się wracać<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h1>
+    <h1>Chwile, do których chce się wracać</h1>
     <p class="lead">Joy Moments to radosne momenty dopięte w szczegółach. Napisz, jaką okazję planujesz, a resztę ustalimy razem.</p>
-    <div class="hero-cta" id="heroCta">
-      <a class="btn" href="#kontakt"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Zapytaj o termin</a>
-      <a class="hero-mail" href="mailto:info@joymoments.pl">info@joymoments.pl</a>
-    </div>
-    <ul class="okazje-lista" aria-label="Okazje">
-      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Urodziny</li>
-      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Wesela</li>
-      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Chrzciny i komunie</li>
-      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Spotkania firmowe</li>
-    </ul>
+    <a class="btn" href="#kontakt" id="heroCta">Zapytaj o termin</a>
   </div>
-  <figure class="hero-foto"><img src="img/hero-sala.webp" alt="Sala przygotowana na przyjęcie: długie stoły, drewniany strop i girlandy światełek" width="1024" height="683" fetchpriority="high"></figure>
 </section>
 
 <section class="sek" id="okazje">
   <div class="wrap">
     <div class="sek-head">
       <div>
-        <h2>Na każdą okazję<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2>
+        <h2>Na każdą okazję</h2>
         <p>Duże przyjęcie albo kameralne spotkanie. Każdy moment zaczyna się od tego, co chcesz świętować.</p>
       </div>
       <div class="strzalki">
-        <button type="button" aria-label="Poprzednie" data-tor="tor1" data-k="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button type="button" aria-label="Następne" data-tor="tor1" data-k="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button type="button" aria-label="Poprzednie" data-tor="tor1" data-k="-1"><span aria-hidden="true">&larr;</span></button>
+        <button type="button" aria-label="Następne" data-tor="tor1" data-k="1"><span aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
     <div class="tor" id="tor1">
-      <article class="karta"><figure><img src="img/urodziny.webp" alt="Tort ze świeczkami wnoszony na przyjęcie urodzinowe" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Urodziny i rocznice</h3><p>Moment, w którym gasną świeczki, a wszyscy patrzą w jedną stronę.</p></article>
-      <article class="karta"><figure><img src="img/wesele.webp" alt="Sala weselna pod białym namiotem z nakrytymi okrągłymi stołami" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Śluby i wesela</h3><p>Dzień, który wspomina się latami, przygotowany bez pośpiechu.</p></article>
-      <article class="karta"><figure><img src="img/stol.webp" alt="Nakryty stół z kieliszkami i serwetkami przewiązanymi złotą wstążką" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Chrzciny i komunie</h3><p>Rodzinne święto przy jednym stole, spokojnie i elegancko.</p></article>
-      <article class="karta"><figure><img src="img/toast.webp" alt="Dwie osoby wznoszą toast kieliszkami szampana" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Spotkania firmowe</h3><p>Jubileusz, wigilia zespołu albo podziękowanie dla klientów.</p></article>
-      <article class="karta"><figure><img src="img/wstazka.webp" alt="Prezent przewiązany pomarańczową wstążką" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Niespodzianki</h3><p>Mały gest, który zostaje w pamięci na dłużej niż sam dzień.</p></article>
+      <article class="karta"><figure><img src="img/urodziny.webp" alt="Tort ze świeczkami wnoszony na przyjęcie urodzinowe" loading="lazy" width="1024" height="683"><h3>Urodziny i rocznice</h3></figure><p>Moment, w którym gasną świeczki, a wszyscy patrzą w jedną stronę.</p></article>
+      <article class="karta"><figure><img src="img/wesele.webp" alt="Sala weselna pod białym namiotem z nakrytymi okrągłymi stołami" loading="lazy" width="1024" height="683"><h3>Śluby i wesela</h3></figure><p>Dzień, który wspomina się latami, przygotowany bez pośpiechu.</p></article>
+      <article class="karta"><figure><img src="img/stol.webp" alt="Nakryty stół z kieliszkami i serwetkami przewiązanymi złotą wstążką" loading="lazy" width="1024" height="683"><h3>Chrzciny i komunie</h3></figure><p>Rodzinne święto przy jednym stole, spokojnie i elegancko.</p></article>
+      <article class="karta"><figure><img src="img/toast.webp" alt="Dwie osoby wznoszą toast kieliszkami szampana" loading="lazy" width="1024" height="683"><h3>Spotkania firmowe</h3></figure><p>Jubileusz, wigilia zespołu albo podziękowanie dla klientów.</p></article>
+      <article class="karta"><figure><img src="img/wstazka.webp" alt="Prezent przewiązany pomarańczową wstążką" loading="lazy" width="1024" height="683"><h3>Niespodzianki</h3></figure><p>Mały gest, który zostaje w pamięci na dłużej niż sam dzień.</p></article>
     </div>
   </div>
 </section>
@@ -307,7 +276,7 @@ form .btn{justify-self:start}
 <section class="sek motto">
   <div class="wrap">
     <div>
-      <blockquote>Radość nie potrzebuje wielkiej okazji. Wystarczy <em>dobrze przygotowany moment</em>.</blockquote>
+      <h2>Radość nie potrzebuje wielkiej okazji. Wystarczy dobrze przygotowany moment.</h2>
       <p class="opis">Stąd nazwa Joy Moments. Liczą się szczegóły, które goście zauważą od razu: światło, stół, drobne gesty i atmosfera, w której po prostu chce się zostać.</p>
     </div>
     <div class="duet">
@@ -317,24 +286,24 @@ form .btn{justify-self:start}
   </div>
 </section>
 
-<section class="sek" id="jak">
+<section class="sek jak" id="jak">
   <div class="wrap">
-    <div class="sek-head"><div><h2>Jak to wygląda<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2><p>Od pierwszej wiadomości do chwili, w której możesz już tylko się cieszyć.</p></div></div>
+    <div class="sek-head"><div><h2>Jak to wygląda</h2><p>Od pierwszej wiadomości do chwili, w której możesz już tylko się cieszyć.</p></div></div>
     <ol class="linia">
-      <li><span class="wezel"><span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><h3>Piszesz, co świętujesz</h3><p>Okazja, data, miejsce i liczba gości. Tyle wystarczy na start.</p></li>
-      <li><span class="wezel"><span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><h3>Ustalamy szczegóły</h3><p>Dobieramy pomysł do Twojego stylu i budżetu, bez zbędnych formalności.</p></li>
-      <li><span class="wezel"><span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><h3>Cieszysz się chwilą</h3><p>W dniu okazji wszystko jest na miejscu, a Ty jesteś z gośćmi.</p></li>
+      <li><h3>Piszesz, co świętujesz</h3><p>Okazja, data, miejsce i liczba gości. Tyle wystarczy na start.</p></li>
+      <li><h3>Ustalamy szczegóły</h3><p>Dobieramy pomysł do Twojego stylu i budżetu, bez zbędnych formalności.</p></li>
+      <li><h3>Cieszysz się chwilą</h3><p>W dniu okazji wszystko jest na miejscu, a Ty jesteś z gośćmi.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="sek galeria" id="galeria">
+<section class="sek" id="galeria">
   <div class="wrap">
     <div class="sek-head">
-      <div><h2>Momenty<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2><p>Przesuń, żeby zobaczyć więcej.</p></div>
+      <div><h2>Momenty</h2><p>Przesuń, żeby zobaczyć więcej.</p></div>
       <div class="strzalki">
-        <button type="button" aria-label="Poprzednie zdjęcie" data-tor="pas1" data-k="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button type="button" aria-label="Następne zdjęcie" data-tor="pas1" data-k="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button type="button" aria-label="Poprzednie zdjęcie" data-tor="pas1" data-k="-1"><span aria-hidden="true">&larr;</span></button>
+        <button type="button" aria-label="Następne zdjęcie" data-tor="pas1" data-k="1"><span aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
     <div class="pas" id="pas1">
@@ -351,7 +320,7 @@ form .btn{justify-self:start}
 <section class="sek kontakt" id="kontakt">
   <div class="wrap">
     <div>
-      <h2>Opowiedz o swojej okazji<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2>
+      <h2>Opowiedz o swojej okazji</h2>
       <p class="opis">Napisz kilka słów o tym, co planujesz. Odpowiemy mailowo z propozycją.</p>
       <div class="kanal"><span>E-mail</span><a href="mailto:info@joymoments.pl">info@joymoments.pl</a></div>
     </div>
@@ -361,7 +330,7 @@ form .btn{justify-self:start}
       <div class="pole"><label for="f-okazja">Okazja</label><select id="f-okazja" name="okazja"><option>Urodziny lub rocznica</option><option>Ślub lub wesele</option><option>Chrzciny lub komunia</option><option>Spotkanie firmowe</option><option>Niespodzianka</option><option>Inna</option></select></div>
       <div class="pole"><label for="f-data">Data</label><input id="f-data" name="data" type="date"></div>
       <div class="pole cale"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="wiadomosc" placeholder="Miejsce, liczba gości, pomysły"></textarea></div>
-      <button class="btn" type="submit"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Wyślij zapytanie</button>
+      <button class="btn btn-ciemny" type="submit">Wyślij zapytanie</button>
       <p class="info" id="info" role="status">To podgląd strony: formularz zacznie wysyłać wiadomości w gotowej wersji.</p>
     </form>
   </div>
@@ -372,7 +341,7 @@ form .btn{justify-self:start}
   <div class="wrap">
     <div class="gora">
       <div>
-        <a class="znak" href="#start"><span class="j">Joy<span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><span class="m">Moments</span></a>
+        <a class="znak" href="#start"><span class="j">joy</span><span>moments</span></a>
         <p class="opis">Chwile, do których chce się wracać.</p>
       </div>
       <div>
@@ -392,8 +361,8 @@ form .btn{justify-self:start}
 </footer>
 
 <div class="mob" id="mob">
-  <a class="btn btn-jasny" href="mailto:info@joymoments.pl" aria-label="Napisz e-mail">E-mail</a>
-  <a class="btn" href="#kontakt"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Zapytaj o termin</a>
+  <a class="btn btn-ciemny" href="mailto:info@joymoments.pl">E-mail</a>
+  <a class="btn" href="#kontakt">Zapytaj o termin</a>
 </div>
 
 <script>
