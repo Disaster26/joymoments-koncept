@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Joy Moments | Chwile, do których chce się wracać</title>
+<meta name="description" content="Joy Moments - radosne chwile przygotowane w szczegółach. Napisz, jaką okazję planujesz: info@joymoments.pl">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="img/iskra.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-sala.webp">
+<style>
+:root{
+  --brand:#8b6b4f; --brand-d:#6e5139; --brand-l:#efe6dc;
+  --cream:#faf7f2; --ink:#2b2119; --muted:#62574e; --line:#e9e2da;
+  --spark:#d99a2b;
+  --hh:64px; --wrap:min(1180px, calc(100% - 32px));
+  --serif:"Fraunces", Georgia, serif; --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh);-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:var(--wrap);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em;font-optical-sizing:auto}
+h2{font-size:clamp(30px,4.2vw,46px)}
+p{margin:0}
+.iskra{display:inline-block;width:.62em;height:.62em;color:var(--spark);flex:none}
+.iskra svg{width:100%;height:100%;display:block}
+
+/* przyciski */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--brand);color:#fff;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--brand-d)}
+.btn:active{transform:scale(.98)}
+.btn .iskra{color:#f3d08f;width:14px;height:14px}
+.btn-jasny{background:#fff;color:var(--brand-d)}
+.btn-jasny:hover{background:var(--cream)}
+
+/* nagłówek */
+.top{position:sticky;top:0;z-index:50;height:var(--hh);background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.znak{display:inline-flex;align-items:flex-start;text-decoration:none;font:500 25px/1 var(--serif);color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
+.znak .j{position:relative;color:var(--brand)}
+.znak .j .iskra{position:absolute;left:52%;top:-9px;width:11px;height:11px}
+.znak .m{margin-left:.24em}
+.menu{display:flex;align-items:center;gap:30px}
+.menu a{text-decoration:none;font-weight:500;font-size:15.5px;color:var(--muted);position:relative;padding:6px 0}
+.menu a:hover{color:var(--ink)}
+.menu a.akt{color:var(--ink)}
+.menu a.akt::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--brand)}
+.top .btn{min-height:44px;padding:0 20px;font-size:15px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.panel{display:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);min-height:calc(100svh - var(--hh));background:#fff}
+.hero-in{display:flex;flex-direction:column;justify-content:center;padding:48px clamp(24px,5vw,72px) 48px max(16px, calc((100vw - 1180px)/2))}
+.hero h1{font-size:clamp(40px,4.9vw,70px);max-width:12ch;text-wrap:balance}
+.okazje-lista{list-style:none;margin:clamp(36px,6vh,64px) 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:15px}
+.okazje-lista li{display:flex;align-items:center;gap:8px}
+.okazje-lista .iskra{width:10px;height:10px}
+.hero h1 .iskra{width:.42em;height:.42em;vertical-align:.62em;margin-left:.08em}
+.hero .lead{margin-top:22px;font-size:clamp(17px,1.35vw,19px);color:var(--muted);max-width:30em}
+.hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.hero-mail{font-weight:600;color:var(--brand-d);text-decoration:none;border-bottom:1px solid rgba(139,107,79,.35);padding-bottom:2px}
+.hero-mail:hover{border-color:var(--brand)}
+.hero-foto{position:relative;margin:0;overflow:hidden;background:var(--brand-l)}
+.hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.18),rgba(255,255,255,0) 22%)}
+
+/* sekcje */
+.sek{padding:clamp(64px,8vw,112px) 0}
+.sek-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px}
+.sek-head p{color:var(--muted);max-width:34em;margin-top:14px;font-size:17px}
+.sek-head h2 .iskra{width:.4em;height:.4em;vertical-align:.7em;margin-left:.1em}
+.strzalki{display:flex;gap:10px;flex:none}
+.strzalki button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.strzalki button:hover{border-color:var(--brand);background:var(--cream)}
+.strzalki svg{width:18px;height:18px}
+
+/* okazje - karty swipe */
+.tor{display:grid;grid-auto-flow:column;grid-auto-columns:calc((min(1180px, 100vw - 32px) - 72px)/3.3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px;cursor:grab;overscroll-behavior-x:contain}
+.tor::-webkit-scrollbar{display:none}
+.tor.ciag{cursor:grabbing;scroll-snap-type:none}
+.tor.ciag *{user-select:none;pointer-events:none}
+.karta{scroll-snap-align:start;min-width:0}
+.karta figure{margin:0;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--brand-l);position:relative}
+.karta img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.karta:hover img{transform:scale(1.035)}
+.karta h3{margin-top:18px;font-size:24px;display:flex;align-items:center;gap:10px}
+.karta h3 .iskra{width:13px;height:13px}
+.karta p{margin-top:6px;color:var(--muted)}
+
+/* motto - krem */
+.motto{background:var(--cream)}
+.motto .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.motto blockquote{margin:0;font:400 clamp(28px,3.4vw,44px)/1.22 var(--serif);letter-spacing:-.01em}
+.motto blockquote em{font-style:normal;color:var(--brand)}
+.motto .opis{color:var(--muted);font-size:17px;margin-top:22px;max-width:30em}
+.duet{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:16px;align-items:end}
+.duet figure{margin:0;border-radius:18px;overflow:hidden;background:var(--brand-l)}
+.duet figure:first-child{aspect-ratio:4/5}
+.duet figure:last-child{aspect-ratio:3/4;margin-bottom:40px}
+.duet img{width:100%;height:100%;object-fit:cover}
+
+/* linia chwil */
+.linia{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;position:relative}
+.linia::before{content:"";position:absolute;left:12px;right:12px;top:12px;height:1px;background:linear-gradient(90deg,var(--brand) 0,var(--brand) 60%,rgba(139,107,79,.15))}
+.linia li{position:relative;padding-top:48px}
+.linia .wezel{position:absolute;top:0;left:0;width:25px;height:25px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px #fff}
+.linia .wezel .iskra{width:25px;height:25px}
+.linia h3{font-size:24px}
+.linia p{margin-top:8px;color:var(--muted);max-width:24em}
+
+/* galeria */
+.galeria{background:#fff;padding-top:0}
+.pas{display:grid;grid-auto-flow:column;grid-auto-columns:calc((min(1180px, 100vw - 32px) - 32px)/2.4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain}
+.pas::-webkit-scrollbar{display:none}
+.pas.ciag{cursor:grabbing;scroll-snap-type:none}
+.pas.ciag *{user-select:none;pointer-events:none}
+.pas figure{margin:0;aspect-ratio:3/2;border-radius:14px;overflow:hidden;scroll-snap-align:start;background:var(--brand-l)}
+.pas img{width:100%;height:100%;object-fit:cover}
+.kropki{display:flex;gap:8px;justify-content:center;margin-top:22px}
+.kropki i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
+.kropki i.on{background:var(--brand);width:22px;border-radius:8px}
+
+/* kontakt */
+.kontakt{background:var(--brand);color:#fff}
+.kontakt .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,88px);align-items:start}
+.kontakt h2 .iskra{color:#f3d08f;width:.4em;height:.4em;vertical-align:.7em;margin-left:.1em}
+.kontakt .opis{margin-top:18px;font-size:17px;color:rgba(255,255,255,.86);max-width:28em}
+.kanal{margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
+.kanal span{display:block;font-size:14px;color:rgba(255,255,255,.75)}
+.kanal a{font:500 clamp(22px,2.2vw,28px)/1.3 var(--serif);text-decoration:none;color:#fff;border-bottom:1px solid rgba(255,255,255,.4)}
+.kanal a:hover{border-color:#fff}
+form{background:#fff;color:var(--ink);border-radius:20px;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.pole{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pole.cale{grid-column:1/-1}
+label{font-size:14px;font-weight:600}
+input,select,textarea{font:400 16px/1.4 var(--sans);color:var(--ink);background:#fff;border:1px solid #d9d0c6;border-radius:12px;padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+form .btn{justify-self:start}
+.info{grid-column:1/-1;font-size:14px;color:var(--muted);display:none}
+.info.on{display:block}
+
+/* stopka */
+.stopka{background:#fff;border-top:1px solid var(--line);padding:44px 0 28px;color:var(--muted);font-size:15px}
+.stopka .gora{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:28px}
+.stopka h4{margin:0 0 10px;font:600 14px/1.3 var(--sans);color:var(--ink)}
+.stopka ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.stopka a{text-decoration:none}
+.stopka a:hover{color:var(--ink)}
+.stopka .opis{margin-top:12px;max-width:26em}
+.stopka .dol{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;font-size:13.5px}
+
+/* dolny pasek tel */
+.mob{display:none}
+
+/* ---------- komputer niski ---------- */
+@media (min-width:1025px) and (max-height:820px){
+  .hero h1{font-size:clamp(38px,4.2vw,58px)}
+  .hero .lead{margin-top:16px}
+  .hero-cta{margin-top:24px}
+}
+/* ---------- tablet ---------- */
+@media (max-width:1024px){
+  .menu{gap:22px}
+  .tor{grid-auto-columns:calc((100vw - 32px - 24px)/2.2)}
+}
+/* ---------- telefon ---------- */
+@media (max-width:860px){
+  :root{--hh:60px}
+  .menu,.top .btn{display:none}
+  .burger{display:flex}
+  .panel{position:fixed;inset:var(--hh) 0 auto 0;z-index:49;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px 22px;box-shadow:0 18px 30px rgba(43,33,25,.08)}
+  .panel.on{display:block}
+  .panel a.lk{display:flex;align-items:center;justify-content:space-between;padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none;font:500 21px/1.3 var(--serif)}
+  .panel a.lk.akt{color:var(--brand)}
+  .panel .btn{margin-top:18px;width:100%;justify-content:center}
+  .panel .mail{display:block;margin-top:14px;text-align:center;color:var(--muted);font-size:15px;text-decoration:none}
+
+  .hero{display:flex;flex-direction:column;min-height:calc(100svh - var(--hh))}
+  .hero-foto{order:-1;flex:1 1 0;min-height:min(56vw,30svh);max-height:56svh;align-self:stretch;width:100%}
+  .hero-foto::after{background:linear-gradient(180deg,rgba(255,255,255,0) 70%,#fff)}
+  .hero-in{flex:0 0 auto;padding:clamp(14px,2.6svh,24px) 16px clamp(20px,3.6svh,32px)}
+  .hero h1{font-size:clamp(31px,min(9.4vw,5.6svh),44px);max-width:none}
+  .hero .lead{margin-top:clamp(8px,1.6svh,14px);font-size:clamp(15px,min(4.2vw,2.3svh),17px);line-height:1.5}
+  .hero-cta{margin-top:clamp(14px,2.6svh,24px);gap:12px 18px}
+  .hero-cta .btn{min-height:clamp(46px,6.6svh,52px)}
+  .okazje-lista{display:none}
+
+  .sek-head{margin-bottom:26px}
+  .strzalki{display:none}
+  .tor{grid-auto-columns:calc((100vw - 32px)*.8);gap:14px;margin-right:-16px;padding-right:16px}
+  .karta h3{font-size:22px;margin-top:14px}
+  .motto .wrap{grid-template-columns:minmax(0,1fr)}
+  .duet figure:last-child{margin-bottom:28px}
+  .linia{grid-template-columns:minmax(0,1fr);gap:28px}
+  .linia::before{left:12px;right:auto;top:12px;bottom:12px;width:1px;height:auto;background:linear-gradient(180deg,var(--brand),rgba(139,107,79,.15))}
+  .linia li{padding:0 0 0 48px}
+  .pas{grid-auto-columns:calc((100vw - 32px)*.86);gap:12px;margin-right:-16px;padding-right:16px}
+  .kontakt .wrap{grid-template-columns:minmax(0,1fr)}
+  form{grid-template-columns:minmax(0,1fr)}
+  form .btn{width:100%;justify-content:center}
+  .stopka .gora{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .stopka .gora>div:first-child{grid-column:1/-1}
+  .stopka{padding-bottom:calc(28px + 72px)}
+
+  .mob{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
+  .mob.widac{transform:none}
+  .mob .btn{flex:1;justify-content:center;min-height:48px}
+  .mob .btn-jasny{border:1px solid var(--line);flex:0 0 auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* znak Wylinki */
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-iskra" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C12.9 7.2 16.8 11.1 24 12 16.8 12.9 12.9 16.8 12 24 11.1 16.8 7.2 12.9 0 12 7.2 11.1 11.1 7.2 12 0Z"/></symbol></svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="znak" href="#start" aria-label="Joy Moments - strona główna"><span class="j">Joy<span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><span class="m">Moments</span></a>
+    <nav class="menu" aria-label="Menu główne">
+      <a href="#start" class="akt" aria-current="page">Start</a>
+      <a href="#okazje">Okazje</a>
+      <a href="#jak">Jak to wygląda</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn" href="#kontakt">Zapytaj o termin</a>
+    <button class="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="panel"><span></span></button>
+  </div>
+</header>
+<div class="panel" id="panel">
+  <a class="lk akt" href="#start">Start</a>
+  <a class="lk" href="#okazje">Okazje</a>
+  <a class="lk" href="#jak">Jak to wygląda</a>
+  <a class="lk" href="#galeria">Galeria</a>
+  <a class="lk" href="#kontakt">Kontakt</a>
+  <a class="btn" href="#kontakt"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Zapytaj o termin</a>
+  <a class="mail" href="mailto:info@joymoments.pl">info@joymoments.pl</a>
+</div>
+
+<main>
+<section class="hero" id="start">
+  <div class="hero-in">
+    <h1>Chwile, do których chce się wracać<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h1>
+    <p class="lead">Joy Moments to radosne momenty dopięte w szczegółach. Napisz, jaką okazję planujesz, a resztę ustalimy razem.</p>
+    <div class="hero-cta" id="heroCta">
+      <a class="btn" href="#kontakt"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Zapytaj o termin</a>
+      <a class="hero-mail" href="mailto:info@joymoments.pl">info@joymoments.pl</a>
+    </div>
+    <ul class="okazje-lista" aria-label="Okazje">
+      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Urodziny</li>
+      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Wesela</li>
+      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Chrzciny i komunie</li>
+      <li><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Spotkania firmowe</li>
+    </ul>
+  </div>
+  <figure class="hero-foto"><img src="img/hero-sala.webp" alt="Sala przygotowana na przyjęcie: długie stoły, drewniany strop i girlandy światełek" width="1024" height="683" fetchpriority="high"></figure>
+</section>
+
+<section class="sek" id="okazje">
+  <div class="wrap">
+    <div class="sek-head">
+      <div>
+        <h2>Na każdą okazję<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2>
+        <p>Duże przyjęcie albo kameralne spotkanie. Każdy moment zaczyna się od tego, co chcesz świętować.</p>
+      </div>
+      <div class="strzalki">
+        <button type="button" aria-label="Poprzednie" data-tor="tor1" data-k="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" aria-label="Następne" data-tor="tor1" data-k="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="tor" id="tor1">
+      <article class="karta"><figure><img src="img/urodziny.webp" alt="Tort ze świeczkami wnoszony na przyjęcie urodzinowe" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Urodziny i rocznice</h3><p>Moment, w którym gasną świeczki, a wszyscy patrzą w jedną stronę.</p></article>
+      <article class="karta"><figure><img src="img/wesele.webp" alt="Sala weselna pod białym namiotem z nakrytymi okrągłymi stołami" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Śluby i wesela</h3><p>Dzień, który wspomina się latami, przygotowany bez pośpiechu.</p></article>
+      <article class="karta"><figure><img src="img/stol.webp" alt="Nakryty stół z kieliszkami i serwetkami przewiązanymi złotą wstążką" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Chrzciny i komunie</h3><p>Rodzinne święto przy jednym stole, spokojnie i elegancko.</p></article>
+      <article class="karta"><figure><img src="img/toast.webp" alt="Dwie osoby wznoszą toast kieliszkami szampana" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Spotkania firmowe</h3><p>Jubileusz, wigilia zespołu albo podziękowanie dla klientów.</p></article>
+      <article class="karta"><figure><img src="img/wstazka.webp" alt="Prezent przewiązany pomarańczową wstążką" loading="lazy" width="1024" height="683"></figure><h3><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Niespodzianki</h3><p>Mały gest, który zostaje w pamięci na dłużej niż sam dzień.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sek motto">
+  <div class="wrap">
+    <div>
+      <blockquote>Radość nie potrzebuje wielkiej okazji. Wystarczy <em>dobrze przygotowany moment</em>.</blockquote>
+      <p class="opis">Stąd nazwa Joy Moments. Liczą się szczegóły, które goście zauważą od razu: światło, stół, drobne gesty i atmosfera, w której po prostu chce się zostać.</p>
+    </div>
+    <div class="duet">
+      <figure><img src="img/zimne-ognie.webp" alt="Dłonie trzymające zapalony zimny ogień" loading="lazy" width="1024" height="683"></figure>
+      <figure><img src="img/winietka.webp" alt="Winietka na nakrytym stole przy talerzu" loading="lazy" width="1024" height="583"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="jak">
+  <div class="wrap">
+    <div class="sek-head"><div><h2>Jak to wygląda<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2><p>Od pierwszej wiadomości do chwili, w której możesz już tylko się cieszyć.</p></div></div>
+    <ol class="linia">
+      <li><span class="wezel"><span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><h3>Piszesz, co świętujesz</h3><p>Okazja, data, miejsce i liczba gości. Tyle wystarczy na start.</p></li>
+      <li><span class="wezel"><span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><h3>Ustalamy szczegóły</h3><p>Dobieramy pomysł do Twojego stylu i budżetu, bez zbędnych formalności.</p></li>
+      <li><span class="wezel"><span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><h3>Cieszysz się chwilą</h3><p>W dniu okazji wszystko jest na miejscu, a Ty jesteś z gośćmi.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sek galeria" id="galeria">
+  <div class="wrap">
+    <div class="sek-head">
+      <div><h2>Momenty<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2><p>Przesuń, żeby zobaczyć więcej.</p></div>
+      <div class="strzalki">
+        <button type="button" aria-label="Poprzednie zdjęcie" data-tor="pas1" data-k="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" aria-label="Następne zdjęcie" data-tor="pas1" data-k="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="pas" id="pas1">
+      <figure><img src="img/swieczki.webp" alt="Świeczki urodzinowe na torcie" loading="lazy" width="1024" height="683"></figure>
+      <figure><img src="img/kwiaty.webp" alt="Kwiaty i białe serwetki na stole przyjęcia" loading="lazy" width="1024" height="683"></figure>
+      <figure><img src="img/tort.webp" alt="Zapalanie świeczek na torcie w półmroku" loading="lazy" width="1024" height="683"></figure>
+      <figure><img src="img/iskry.webp" alt="Iskry zimnych ogni w ciepłym świetle" loading="lazy" width="1024" height="683"></figure>
+      <figure><img src="img/hero-sala.webp" alt="Długie stoły pod girlandami światełek" loading="lazy" width="1024" height="683"></figure>
+    </div>
+    <div class="kropki" id="kropki" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sek kontakt" id="kontakt">
+  <div class="wrap">
+    <div>
+      <h2>Opowiedz o swojej okazji<span class="iskra"><svg><use href="#i-iskra"/></svg></span></h2>
+      <p class="opis">Napisz kilka słów o tym, co planujesz. Odpowiemy mailowo z propozycją.</p>
+      <div class="kanal"><span>E-mail</span><a href="mailto:info@joymoments.pl">info@joymoments.pl</a></div>
+    </div>
+    <form id="form" novalidate>
+      <div class="pole"><label for="f-imie">Imię</label><input id="f-imie" name="imie" autocomplete="given-name" placeholder="Jak się zwracać?"></div>
+      <div class="pole"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" placeholder="adres@domena.pl"></div>
+      <div class="pole"><label for="f-okazja">Okazja</label><select id="f-okazja" name="okazja"><option>Urodziny lub rocznica</option><option>Ślub lub wesele</option><option>Chrzciny lub komunia</option><option>Spotkanie firmowe</option><option>Niespodzianka</option><option>Inna</option></select></div>
+      <div class="pole"><label for="f-data">Data</label><input id="f-data" name="data" type="date"></div>
+      <div class="pole cale"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="wiadomosc" placeholder="Miejsce, liczba gości, pomysły"></textarea></div>
+      <button class="btn" type="submit"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Wyślij zapytanie</button>
+      <p class="info" id="info" role="status">To podgląd strony: formularz zacznie wysyłać wiadomości w gotowej wersji.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wrap">
+    <div class="gora">
+      <div>
+        <a class="znak" href="#start"><span class="j">Joy<span class="iskra"><svg><use href="#i-iskra"/></svg></span></span><span class="m">Moments</span></a>
+        <p class="opis">Chwile, do których chce się wracać.</p>
+      </div>
+      <div>
+        <h4>Strona</h4>
+        <ul><li><a href="#okazje">Okazje</a></li><li><a href="#jak">Jak to wygląda</a></li><li><a href="#galeria">Galeria</a></li></ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul><li><a href="mailto:info@joymoments.pl">info@joymoments.pl</a></li><li><a href="#kontakt">Formularz</a></li></ul>
+      </div>
+    </div>
+    <div class="dol">
+      <span>&copy; <span id="rok">2026</span> Joy Moments. Podgląd koncepcji strony, zdjęcia poglądowe.</span>
+      <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=joymoments.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+    </div>
+  </div>
+</footer>
+
+<div class="mob" id="mob">
+  <a class="btn btn-jasny" href="mailto:info@joymoments.pl" aria-label="Napisz e-mail">E-mail</a>
+  <a class="btn" href="#kontakt"><span class="iskra"><svg><use href="#i-iskra"/></svg></span>Zapytaj o termin</a>
+</div>
+
+<script>
+(function(){
+  document.getElementById('rok').textContent=new Date().getFullYear();
+  var b=document.querySelector('.burger'),p=document.getElementById('panel');
+  function zamknij(){p.classList.remove('on');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Otwórz menu');}
+  b.addEventListener('click',function(){var o=!p.classList.contains('on');p.classList.toggle('on',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu');});
+  p.querySelectorAll('a').forEach(function(a){a.addEventListener('click',zamknij);});
+
+  // aktywna pozycja menu
+  var linki=[].slice.call(document.querySelectorAll('.menu a, .panel a.lk'));
+  var sekcje=['start','okazje','jak','galeria','kontakt'].map(function(id){return document.getElementById(id);});
+  function akt(){var y=window.scrollY+window.innerHeight*0.35,cur='start';sekcje.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur='kontakt';
+    linki.forEach(function(a){var on=a.getAttribute('href')==='#'+cur;a.classList.toggle('akt',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
+  window.addEventListener('scroll',akt,{passive:true});akt();
+
+  // przeciąganie myszą + strzałki
+  function tor(el){
+    var x0,s0,ruch=false,wcisk=false;
+    el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;wcisk=true;ruch=false;x0=e.clientX;s0=el.scrollLeft;});
+    window.addEventListener('pointermove',function(e){if(!wcisk)return;var d=e.clientX-x0;if(Math.abs(d)>4){ruch=true;el.classList.add('ciag');}if(ruch)el.scrollLeft=s0-d;});
+    window.addEventListener('pointerup',function(){if(!wcisk)return;wcisk=false;if(ruch){var w=el.children[0].getBoundingClientRect().width+parseFloat(getComputedStyle(el).columnGap||0);var c=Math.round(el.scrollLeft/w)*w;el.classList.remove('ciag');el.scrollTo({left:c,behavior:'smooth'});}});
+    el.addEventListener('dragstart',function(e){e.preventDefault();});
+  }
+  ['tor1','pas1'].forEach(function(id){tor(document.getElementById(id));});
+  document.querySelectorAll('.strzalki button').forEach(function(btn){btn.addEventListener('click',function(){var el=document.getElementById(btn.dataset.tor);var w=el.children[0].getBoundingClientRect().width+parseFloat(getComputedStyle(el).columnGap||0);el.scrollBy({left:w*btn.dataset.k,behavior:'smooth'});});});
+
+  // kropki galerii
+  var pas=document.getElementById('pas1'),kr=document.getElementById('kropki');
+  for(var i=0;i<pas.children.length;i++){kr.appendChild(document.createElement('i'));}
+  function kropki(){var w=pas.children[0].getBoundingClientRect().width+12;var n=Math.round(pas.scrollLeft/w);var max=pas.scrollWidth-pas.clientWidth;if(pas.scrollLeft>=max-4)n=pas.children.length-1;[].forEach.call(kr.children,function(k,j){k.classList.toggle('on',j===Math.min(n,pas.children.length-1));});}
+  pas.addEventListener('scroll',kropki,{passive:true});kropki();
+
+  // formularz pokazowy
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('info').classList.add('on');});
+
+  // dolny pasek po przewinięciu za przyciski hero
+  var mob=document.getElementById('mob'),cta=document.getElementById('heroCta'),kon=document.getElementById('kontakt');
+  var zaHero=false,wKontakcie=false;
+  function pasek(){mob.classList.toggle('widac',zaHero&&!wKontakcie);}
+  new IntersectionObserver(function(e){zaHero=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;pasek();}).observe(cta);
+  new IntersectionObserver(function(e){wKontakcie=e[0].isIntersecting;pasek();},{threshold:.15}).observe(kon);
+})();
+</script>
+</body>
+</html>
